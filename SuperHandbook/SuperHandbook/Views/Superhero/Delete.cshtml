@@ -1,0 +1,152 @@
+﻿@model SuperHandbook.DBModel.Superhero
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Superhero</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RealName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthplace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthplace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Origin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagepath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagepath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseofOperation.BaseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseofOperation.BaseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creator.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creator.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentStatu.StatusType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentStatu.StatusType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eye.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eye.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.List.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.List.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MartialStatu.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MartialStatu.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageBoard.BoardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageBoard.BoardName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Occupation.JobType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Occupation.JobType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
