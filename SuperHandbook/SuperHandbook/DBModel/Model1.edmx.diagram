@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="df2c5eee70c9489285f3747b1965d362" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="SuperDBModel.BaseofOperation" Width="1.5" PointX="9.875" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Comment" Width="1.5" PointX="5.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Creator" Width="1.5" PointX="7.625" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.CurrentStatu" Width="1.5" PointX="12.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Equipment" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.EquipPower" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Eye" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Issue" Width="1.5" PointX="7.375" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.List" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.MartialStatu" Width="1.5" PointX="12.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.MessageBoard" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Occupation" Width="1.5" PointX="14.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Power" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.SuperEquip" Width="1.5" PointX="1.875" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.SuperPower" Width="1.5" PointX="0.875" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperDBModel.Team" Width="1.5" PointX="10.75" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="SuperDBModel.FK_Comment_MessageBoard" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_Equipment_List" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_EquipPowers_Equipment" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_MessageBoard_Equipment" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_SuperEquip_Equipment" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_EquipPowers_Power" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_Issues_MessageBoard" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperDBModel.FK_SuperPowers_Power" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SuperDBModel.SuperTeam" Width="1.5" PointX="15" PointY="14.625" />
+        <AssociationConnector Association="SuperDBModel.FK_SuperTeam_Team" />
+        <EntityTypeShape EntityType="SuperDBModel.Superhero" Width="1.5" PointX="10.25" PointY="7.625" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_BaseofOperations" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_Creator" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_CurrentStatus" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_Eyes" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_List" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_MartialStatus" />
+        <AssociationConnector Association="SuperDBModel.FK_MessageBoard_Superhero" />
+        <AssociationConnector Association="SuperDBModel.FK_Superhero_Occupation" />
+        <AssociationConnector Association="SuperDBModel.FK_SuperEquip_Superhero" />
+        <AssociationConnector Association="SuperDBModel.FK_SuperPowers_Superhero" />
+        <AssociationConnector Association="SuperDBModel.FK_SuperTeam_Superhero" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

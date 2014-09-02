@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SuperDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaseofOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BaseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Superheroes" Relationship="SuperDBModel.FK_Superhero_BaseofOperations" FromRole="BaseofOperation" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MessageBoardId" Type="Int32" />
+    <NavigationProperty Name="MessageBoard" Relationship="Self.FK_Comment_MessageBoard" FromRole="Comment" ToRole="MessageBoard" />
+  </EntityType>
+  <EntityType Name="Creator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Superheroes" Relationship="SuperDBModel.FK_Superhero_Creator" FromRole="Creator" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="CurrentStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Superheroes" Relationship="SuperDBModel.FK_Superhero_CurrentStatus" FromRole="CurrentStatu" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Origin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="List" Relationship="Self.FK_Equipment_List" FromRole="Equipment" ToRole="List" />
+    <NavigationProperty Name="EquipPowers" Relationship="Self.FK_EquipPowers_Equipment" FromRole="Equipment" ToRole="EquipPowers" />
+    <NavigationProperty Name="MessageBoard" Relationship="Self.FK_MessageBoard_Equipment" FromRole="Equipment" ToRole="MessageBoard" />
+    <NavigationProperty Name="SuperEquips" Relationship="Self.FK_SuperEquip_Equipment" FromRole="Equipment" ToRole="SuperEquip" />
+  </EntityType>
+  <EntityType Name="EquipPower">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EquipId" Type="Int32" />
+    <Property Name="PowerId" Type="Int32" />
+    <NavigationProperty Name="Equipment" Relationship="Self.FK_EquipPowers_Equipment" FromRole="EquipPowers" ToRole="Equipment" />
+    <NavigationProperty Name="Power" Relationship="Self.FK_EquipPowers_Power" FromRole="EquipPowers" ToRole="Power" />
+  </EntityType>
+  <EntityType Name="Eye">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Superheroes" Relationship="SuperDBModel.FK_Superhero_Eyes" FromRole="Eye" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="Issue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="MessageBoardId" Type="Int32" />
+    <Property Name="rating" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pubslier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MessageBoard" Relationship="Self.FK_Issues_MessageBoard" FromRole="Issues" ToRole="MessageBoard" />
+  </EntityType>
+  <EntityType Name="List">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_List" FromRole="List" ToRole="Equipment" />
+    <NavigationProperty Name="Superhero" Relationship="SuperDBModel.FK_Superhero_List" FromRole="List" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="MartialStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusType" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Superheroes" Relationship="SuperDBModel.FK_Superhero_MartialStatus" FromRole="MartialStatu" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="MessageBoard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="BoardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_MessageBoard" FromRole="MessageBoard" ToRole="Comment" />
+    <NavigationProperty Name="Equipment" Relationship="Self.FK_MessageBoard_Equipment" FromRole="MessageBoard" ToRole="Equipment" />
+    <NavigationProperty Name="Issues" Relationship="Self.FK_Issues_MessageBoard" FromRole="MessageBoard" ToRole="Issues" />
+    <NavigationProperty Name="Superhero" Relationship="SuperDBModel.FK_MessageBoard_Superhero" FromRole="MessageBoard" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="Occupation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Superheroes" Relationship="SuperDBModel.FK_Superhero_Occupation" FromRole="Occupation" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="Power">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="EquipPowers" Relationship="Self.FK_EquipPowers_Power" FromRole="Power" ToRole="EquipPowers" />
+    <NavigationProperty Name="SuperPowers" Relationship="Self.FK_SuperPowers_Power" FromRole="Power" ToRole="SuperPowers" />
+  </EntityType>
+  <EntityType Name="SuperEquip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SuperId" Type="Int32" />
+    <Property Name="EquipId" Type="Int32" />
+    <NavigationProperty Name="Equipment" Relationship="Self.FK_SuperEquip_Equipment" FromRole="SuperEquip" ToRole="Equipment" />
+    <NavigationProperty Name="Superhero" Relationship="SuperDBModel.FK_SuperEquip_Superhero" FromRole="SuperEquip" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="SuperPower">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SuperheroId" Type="Int32" Nullable="false" />
+    <Property Name="PowerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Power" Relationship="Self.FK_SuperPowers_Power" FromRole="SuperPowers" ToRole="Power" />
+    <NavigationProperty Name="Superhero" Relationship="SuperDBModel.FK_SuperPowers_Superhero" FromRole="SuperPower" ToRole="Superhero" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SuperTeams" Relationship="SuperDBModel.FK_SuperTeam_Team" FromRole="Team" ToRole="SuperTeam" />
+  </EntityType>
+  <Association Name="FK_Comment_MessageBoard">
+    <End Role="MessageBoard" Type="Self.MessageBoard" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MessageBoard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="MessageBoardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_List">
+    <End Role="List" Type="Self.List" Multiplicity="1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="List">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipPowers_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+    <End Role="EquipPowers" Type="Self.EquipPower" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipPowers">
+        <PropertyRef Name="EquipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MessageBoard_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="MessageBoard" Type="Self.MessageBoard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MessageBoard">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SuperEquip_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+    <End Role="SuperEquip" Type="Self.SuperEquip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuperEquip">
+        <PropertyRef Name="EquipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipPowers_Power">
+    <End Role="Power" Type="Self.Power" Multiplicity="0..1" />
+    <End Role="EquipPowers" Type="Self.EquipPower" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Power">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipPowers">
+        <PropertyRef Name="PowerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Issues_MessageBoard">
+    <End Role="MessageBoard" Type="Self.MessageBoard" Multiplicity="0..1" />
+    <End Role="Issues" Type="Self.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MessageBoard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Issues">
+        <PropertyRef Name="MessageBoardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SuperPowers_Power">
+    <End Role="Power" Type="Self.Power" Multiplicity="1" />
+    <End Role="SuperPowers" Type="Self.SuperPower" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Power">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuperPowers">
+        <PropertyRef Name="PowerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SuperDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaseofOperations" EntityType="Self.BaseofOperation" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Creators" EntityType="Self.Creator" />
+    <EntitySet Name="CurrentStatus" EntityType="Self.CurrentStatu" />
+    <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+    <EntitySet Name="EquipPowers" EntityType="Self.EquipPower" />
+    <EntitySet Name="Eyes" EntityType="Self.Eye" />
+    <EntitySet Name="Issues" EntityType="Self.Issue" />
+    <EntitySet Name="Lists" EntityType="Self.List" />
+    <EntitySet Name="MartialStatus" EntityType="Self.MartialStatu" />
+    <EntitySet Name="MessageBoards" EntityType="Self.MessageBoard" />
+    <EntitySet Name="Occupations" EntityType="Self.Occupation" />
+    <EntitySet Name="Powers" EntityType="Self.Power" />
+    <EntitySet Name="SuperEquips" EntityType="Self.SuperEquip" />
+    <EntitySet Name="SuperPowers" EntityType="Self.SuperPower" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <AssociationSet Name="FK_Comment_MessageBoard" Association="Self.FK_Comment_MessageBoard">
+      <End Role="MessageBoard" EntitySet="MessageBoards" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_List" Association="Self.FK_Equipment_List">
+      <End Role="List" EntitySet="Lists" />
+      <End Role="Equipment" EntitySet="Equipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipPowers_Equipment" Association="Self.FK_EquipPowers_Equipment">
+      <End Role="Equipment" EntitySet="Equipments" />
+      <End Role="EquipPowers" EntitySet="EquipPowers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MessageBoard_Equipment" Association="Self.FK_MessageBoard_Equipment">
+      <End Role="Equipment" EntitySet="Equipments" />
+      <End Role="MessageBoard" EntitySet="MessageBoards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SuperEquip_Equipment" Association="Self.FK_SuperEquip_Equipment">
+      <End Role="Equipment" EntitySet="Equipments" />
+      <End Role="SuperEquip" EntitySet="SuperEquips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipPowers_Power" Association="Self.FK_EquipPowers_Power">
+      <End Role="Power" EntitySet="Powers" />
+      <End Role="EquipPowers" EntitySet="EquipPowers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Issues_MessageBoard" Association="Self.FK_Issues_MessageBoard">
+      <End Role="MessageBoard" EntitySet="MessageBoards" />
+      <End Role="Issues" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SuperPowers_Power" Association="Self.FK_SuperPowers_Power">
+      <End Role="Power" EntitySet="Powers" />
+      <End Role="SuperPowers" EntitySet="SuperPowers" />
+    </AssociationSet>
+    <EntitySet Name="SuperTeams" EntityType="SuperDBModel.SuperTeam" />
+    <AssociationSet Name="FK_SuperTeam_Team" Association="SuperDBModel.FK_SuperTeam_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="SuperTeam" EntitySet="SuperTeams" />
+    </AssociationSet>
+    <EntitySet Name="Superheroes" EntityType="SuperDBModel.Superhero" />
+    <AssociationSet Name="FK_Superhero_BaseofOperations" Association="SuperDBModel.FK_Superhero_BaseofOperations">
+      <End Role="BaseofOperation" EntitySet="BaseofOperations" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Superhero_Creator" Association="SuperDBModel.FK_Superhero_Creator">
+      <End Role="Creator" EntitySet="Creators" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Superhero_CurrentStatus" Association="SuperDBModel.FK_Superhero_CurrentStatus">
+      <End Role="CurrentStatu" EntitySet="CurrentStatus" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Superhero_Eyes" Association="SuperDBModel.FK_Superhero_Eyes">
+      <End Role="Eye" EntitySet="Eyes" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Superhero_List" Association="SuperDBModel.FK_Superhero_List">
+      <End Role="List" EntitySet="Lists" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Superhero_MartialStatus" Association="SuperDBModel.FK_Superhero_MartialStatus">
+      <End Role="MartialStatu" EntitySet="MartialStatus" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MessageBoard_Superhero" Association="SuperDBModel.FK_MessageBoard_Superhero">
+      <End Role="Superhero" EntitySet="Superheroes" />
+      <End Role="MessageBoard" EntitySet="MessageBoards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Superhero_Occupation" Association="SuperDBModel.FK_Superhero_Occupation">
+      <End Role="Occupation" EntitySet="Occupations" />
+      <End Role="Superhero" EntitySet="Superheroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SuperEquip_Superhero" Association="SuperDBModel.FK_SuperEquip_Superhero">
+      <End Role="Superhero" EntitySet="Superheroes" />
+      <End Role="SuperEquip" EntitySet="SuperEquips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SuperPowers_Superhero" Association="SuperDBModel.FK_SuperPowers_Superhero">
+      <End Role="Superhero" EntitySet="Superheroes" />
+      <End Role="SuperPower" EntitySet="SuperPowers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SuperTeam_Superhero" Association="SuperDBModel.FK_SuperTeam_Superhero">
+      <End Role="Superhero" EntitySet="Superheroes" />
+      <End Role="SuperTeam" EntitySet="SuperTeams" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SuperTeam">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SuperId" Type="Int32" />
+    <Property Name="TeamId" Type="Int32" />
+    <NavigationProperty Name="Team" Relationship="SuperDBModel.FK_SuperTeam_Team" FromRole="SuperTeam" ToRole="Team" />
+    <NavigationProperty Name="Superhero" Relationship="SuperDBModel.FK_SuperTeam_Superhero" FromRole="SuperTeam" ToRole="Superhero" />
+  </EntityType>
+  <Association Name="FK_SuperTeam_Team">
+    <End Type="SuperDBModel.Team" Role="Team" Multiplicity="0..1" />
+    <End Type="SuperDBModel.SuperTeam" Role="SuperTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuperTeam">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Superhero">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RealName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OccupationId" Type="Int32" />
+    <Property Name="Birthplace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MartialstatusId" Type="Int32" />
+    <Property Name="BaseofOperationsId" Type="Int32" />
+    <Property Name="Origin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="weight" Type="Int32" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="imagepath" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EyesId" Type="Int32" />
+    <Property Name="creatorId" Type="Int32" />
+    <Property Name="CurrentStatusId" Type="Int32" />
+    <NavigationProperty Name="BaseofOperation" Relationship="SuperDBModel.FK_Superhero_BaseofOperations" FromRole="Superhero" ToRole="BaseofOperation" />
+    <NavigationProperty Name="Creator" Relationship="SuperDBModel.FK_Superhero_Creator" FromRole="Superhero" ToRole="Creator" />
+    <NavigationProperty Name="CurrentStatu" Relationship="SuperDBModel.FK_Superhero_CurrentStatus" FromRole="Superhero" ToRole="CurrentStatu" />
+    <NavigationProperty Name="Eye" Relationship="SuperDBModel.FK_Superhero_Eyes" FromRole="Superhero" ToRole="Eye" />
+    <NavigationProperty Name="List" Relationship="SuperDBModel.FK_Superhero_List" FromRole="Superhero" ToRole="List" />
+    <NavigationProperty Name="MartialStatu" Relationship="SuperDBModel.FK_Superhero_MartialStatus" FromRole="Superhero" ToRole="MartialStatu" />
+    <NavigationProperty Name="MessageBoard" Relationship="SuperDBModel.FK_MessageBoard_Superhero" FromRole="Superhero" ToRole="MessageBoard" />
+    <NavigationProperty Name="Occupation" Relationship="SuperDBModel.FK_Superhero_Occupation" FromRole="Superhero" ToRole="Occupation" />
+    <NavigationProperty Name="SuperEquips" Relationship="SuperDBModel.FK_SuperEquip_Superhero" FromRole="Superhero" ToRole="SuperEquip" />
+    <NavigationProperty Name="SuperPowers" Relationship="SuperDBModel.FK_SuperPowers_Superhero" FromRole="Superhero" ToRole="SuperPower" />
+    <NavigationProperty Name="SuperTeams" Relationship="SuperDBModel.FK_SuperTeam_Superhero" FromRole="Superhero" ToRole="SuperTeam" />
+  </EntityType>
+  <Association Name="FK_Superhero_BaseofOperations">
+    <End Type="SuperDBModel.BaseofOperation" Role="BaseofOperation" Multiplicity="0..1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaseofOperation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="BaseofOperationsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Superhero_Creator">
+    <End Type="SuperDBModel.Creator" Role="Creator" Multiplicity="0..1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Creator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="creatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Superhero_CurrentStatus">
+    <End Type="SuperDBModel.CurrentStatu" Role="CurrentStatu" Multiplicity="0..1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CurrentStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="CurrentStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Superhero_Eyes">
+    <End Type="SuperDBModel.Eye" Role="Eye" Multiplicity="0..1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Eye">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="EyesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Superhero_List">
+    <End Type="SuperDBModel.List" Role="List" Multiplicity="1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="List">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Superhero_MartialStatus">
+    <End Type="SuperDBModel.MartialStatu" Role="MartialStatu" Multiplicity="0..1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MartialStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="MartialstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MessageBoard_Superhero">
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="1" />
+    <End Type="SuperDBModel.MessageBoard" Role="MessageBoard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Superhero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MessageBoard">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Superhero_Occupation">
+    <End Type="SuperDBModel.Occupation" Role="Occupation" Multiplicity="0..1" />
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Occupation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Superhero">
+        <PropertyRef Name="OccupationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SuperEquip_Superhero">
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="0..1" />
+    <End Type="SuperDBModel.SuperEquip" Role="SuperEquip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Superhero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuperEquip">
+        <PropertyRef Name="SuperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SuperPowers_Superhero">
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="1" />
+    <End Type="SuperDBModel.SuperPower" Role="SuperPower" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Superhero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuperPower">
+        <PropertyRef Name="SuperheroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SuperTeam_Superhero">
+    <End Type="SuperDBModel.Superhero" Role="Superhero" Multiplicity="0..1" />
+    <End Type="SuperDBModel.SuperTeam" Role="SuperTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Superhero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SuperTeam">
+        <PropertyRef Name="SuperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

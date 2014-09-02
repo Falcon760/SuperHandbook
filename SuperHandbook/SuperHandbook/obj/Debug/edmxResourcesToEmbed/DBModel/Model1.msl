@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SuperDBModelStoreContainer" CdmEntityContainer="SuperDBEntities">
+    <EntitySetMapping Name="BaseofOperations">
+      <EntityTypeMapping TypeName="SuperDBModel.BaseofOperation">
+        <MappingFragment StoreEntitySet="BaseofOperations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BaseType" ColumnName="BaseType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="SuperDBModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="MessageBoardId" ColumnName="MessageBoardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Creators">
+      <EntityTypeMapping TypeName="SuperDBModel.Creator">
+        <MappingFragment StoreEntitySet="Creator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentStatus">
+      <EntityTypeMapping TypeName="SuperDBModel.CurrentStatu">
+        <MappingFragment StoreEntitySet="CurrentStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipments">
+      <EntityTypeMapping TypeName="SuperDBModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipPowers">
+      <EntityTypeMapping TypeName="SuperDBModel.EquipPower">
+        <MappingFragment StoreEntitySet="EquipPowers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EquipId" ColumnName="EquipId" />
+          <ScalarProperty Name="PowerId" ColumnName="PowerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eyes">
+      <EntityTypeMapping TypeName="SuperDBModel.Eye">
+        <MappingFragment StoreEntitySet="Eyes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issues">
+      <EntityTypeMapping TypeName="SuperDBModel.Issue">
+        <MappingFragment StoreEntitySet="Issues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="MessageBoardId" ColumnName="MessageBoardId" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Pubslier" ColumnName="Pubslier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lists">
+      <EntityTypeMapping TypeName="SuperDBModel.List">
+        <MappingFragment StoreEntitySet="List">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MartialStatus">
+      <EntityTypeMapping TypeName="SuperDBModel.MartialStatu">
+        <MappingFragment StoreEntitySet="MartialStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageBoards">
+      <EntityTypeMapping TypeName="SuperDBModel.MessageBoard">
+        <MappingFragment StoreEntitySet="MessageBoard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BoardName" ColumnName="BoardName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Occupations">
+      <EntityTypeMapping TypeName="SuperDBModel.Occupation">
+        <MappingFragment StoreEntitySet="Occupation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Powers">
+      <EntityTypeMapping TypeName="SuperDBModel.Power">
+        <MappingFragment StoreEntitySet="Power">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperEquips">
+      <EntityTypeMapping TypeName="SuperDBModel.SuperEquip">
+        <MappingFragment StoreEntitySet="SuperEquip">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SuperId" ColumnName="SuperId" />
+          <ScalarProperty Name="EquipId" ColumnName="EquipId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperPowers">
+      <EntityTypeMapping TypeName="SuperDBModel.SuperPower">
+        <MappingFragment StoreEntitySet="SuperPowers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SuperheroId" ColumnName="SuperheroId" />
+          <ScalarProperty Name="PowerId" ColumnName="PowerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="SuperDBModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperTeams">
+      <EntityTypeMapping TypeName="SuperDBModel.SuperTeam">
+        <MappingFragment StoreEntitySet="SuperTeam">
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="SuperId" ColumnName="SuperId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Superheroes">
+      <EntityTypeMapping TypeName="SuperDBModel.Superhero">
+        <MappingFragment StoreEntitySet="Superhero">
+          <ScalarProperty Name="CurrentStatusId" ColumnName="CurrentStatusId" />
+          <ScalarProperty Name="creatorId" ColumnName="creatorId" />
+          <ScalarProperty Name="EyesId" ColumnName="EyesId" />
+          <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="BaseofOperationsId" ColumnName="BaseofOperationsId" />
+          <ScalarProperty Name="MartialstatusId" ColumnName="MartialstatusId" />
+          <ScalarProperty Name="Birthplace" ColumnName="Birthplace" />
+          <ScalarProperty Name="OccupationId" ColumnName="OccupationId" />
+          <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
