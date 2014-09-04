@@ -23,10 +23,10 @@ namespace SuperHandbook.DBModel
         public int Id { get; set; }
         public string Name { get; set; }
         public string Origin { get; set; }
+        public Nullable<int> ListId { get; set; }
     
-        public virtual List List { get; set; }
         public virtual ICollection<EquipPower> EquipPowers { get; set; }
-        public virtual MessageBoard MessageBoard { get; set; }
         public virtual ICollection<SuperEquip> SuperEquips { get; set; }
+        public virtual List List { get; set; }
     }
 }

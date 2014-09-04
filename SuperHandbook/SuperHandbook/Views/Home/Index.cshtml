@@ -1,4 +1,11 @@
-﻿
+﻿@model IEnumerable<SuperHandbook.DBModel.Superhero>
 @{
     ViewBag.Title = "Home Page";
+}
+@foreach (var item in Model) {
+    <table>
+        <tr>
+ <h4>@Html.DisplayFor(modelItem => item.CodeName) ... @Html.DisplayFor(modelItem => item.Creator.Name)</h4>
+            </tr>
+</table>
 }

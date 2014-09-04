@@ -27,6 +27,8 @@ C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Sy
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\System.Web.WebPages.dll
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\System.Web.WebPages.Razor.dll
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\WebGrease.dll
+C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\EntityFramework.xml
+C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\EntityFramework.SqlServer.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\System.Web.Helpers.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\System.Web.Mvc.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\System.Web.Optimization.xml
@@ -36,8 +38,6 @@ C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Sy
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\System.Web.WebPages.Razor.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Newtonsoft.Json.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Antlr3.Runtime.pdb
-C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\EntityFramework.xml
-C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\EntityFramework.SqlServer.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Steve\Documents\GitHub\SuperHandbook\SuperHandbook\SuperHandbook\bin\Microsoft.AspNet.Identity.EntityFramework.xml

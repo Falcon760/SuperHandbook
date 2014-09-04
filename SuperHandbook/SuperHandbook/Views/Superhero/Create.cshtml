@@ -4,10 +4,10 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Superhero</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Superhero", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -67,7 +67,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Origin, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Origin)
+                @Html.TextAreaFor(model => model.Origin, new { cols = 60, rows = 6 })
                 @Html.ValidationMessageFor(model => model.Origin)
             </div>
         </div>
@@ -89,20 +89,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Picture, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Picture, "Thumbnail", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Picture)
+                <input name="ImageFile" type="file">
                 @Html.ValidationMessageFor(model => model.Picture)
+
+
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.imagepath, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.imagepath)
                 @Html.ValidationMessageFor(model => model.imagepath)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.EyesId, "EyesId", new { @class = "control-label col-md-2" })

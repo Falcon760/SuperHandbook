@@ -24,7 +24,6 @@ namespace SuperHandbook.DBModel
         public string BoardName { get; set; }
     
         public virtual ICollection<Comment> Comments { get; set; }
-        public virtual Equipment Equipment { get; set; }
         public virtual ICollection<Issue> Issues { get; set; }
         public virtual Superhero Superhero { get; set; }
     }

@@ -17,8 +17,7 @@ namespace SuperHandbook.Controllers
         // GET: /List/
         public ActionResult Index()
         {
-            var lists = db.Lists.Include(l => l.Equipment).Include(l => l.Superhero);
-            return View(lists.ToList());
+            return View(db.Lists.ToList());
         }
 
         // GET: /List/Details/5
@@ -39,8 +38,6 @@ namespace SuperHandbook.Controllers
         // GET: /List/Create
         public ActionResult Create()
         {
-            ViewBag.Id = new SelectList(db.Equipments, "Id", "Name");
-            ViewBag.Id = new SelectList(db.Superheroes, "Id", "RealName");
             return View();
         }
 
@@ -58,8 +55,6 @@ namespace SuperHandbook.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id = new SelectList(db.Equipments, "Id", "Name", list.Id);
-            ViewBag.Id = new SelectList(db.Superheroes, "Id", "RealName", list.Id);
             return View(list);
         }
 
@@ -75,8 +70,6 @@ namespace SuperHandbook.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id = new SelectList(db.Equipments, "Id", "Name", list.Id);
-            ViewBag.Id = new SelectList(db.Superheroes, "Id", "RealName", list.Id);
             return View(list);
         }
 
@@ -93,8 +86,6 @@ namespace SuperHandbook.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id = new SelectList(db.Equipments, "Id", "Name", list.Id);
-            ViewBag.Id = new SelectList(db.Superheroes, "Id", "RealName", list.Id);
             return View(list);
         }
 

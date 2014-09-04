@@ -33,7 +33,6 @@ namespace SuperHandbook.DBModel
         public virtual DbSet<EquipPower> EquipPowers { get; set; }
         public virtual DbSet<Eye> Eyes { get; set; }
         public virtual DbSet<Issue> Issues { get; set; }
-        public virtual DbSet<List> Lists { get; set; }
         public virtual DbSet<MartialStatu> MartialStatus { get; set; }
         public virtual DbSet<MessageBoard> MessageBoards { get; set; }
         public virtual DbSet<Occupation> Occupations { get; set; }
@@ -43,5 +42,6 @@ namespace SuperHandbook.DBModel
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<SuperTeam> SuperTeams { get; set; }
         public virtual DbSet<Superhero> Superheroes { get; set; }
+        public virtual DbSet<List> Lists { get; set; }
     }
 }

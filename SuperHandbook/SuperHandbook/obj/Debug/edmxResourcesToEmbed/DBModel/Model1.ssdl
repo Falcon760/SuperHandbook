@@ -38,7 +38,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="Origin" Type="text" />
+    <Property Name="Origin" Type="varchar" MaxLength="1000" />
+    <Property Name="ListId" Type="int" />
   </EntityType>
   <EntityType Name="EquipPowers">
     <Key>
@@ -73,7 +74,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="MartialStatus">
     <Key>
@@ -87,7 +88,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="BoardName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BoardName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Occupation">
     <Key>
@@ -102,7 +103,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Comments" Type="nchar" MaxLength="10" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="SuperEquip">
     <Key>
@@ -123,14 +124,15 @@
     <Property Name="Birthplace" Type="varchar" MaxLength="50" />
     <Property Name="MartialstatusId" Type="int" />
     <Property Name="BaseofOperationsId" Type="int" />
-    <Property Name="Origin" Type="text" />
+    <Property Name="Origin" Type="varchar" MaxLength="1000" />
     <Property Name="height" Type="varchar" MaxLength="50" />
     <Property Name="weight" Type="int" />
     <Property Name="Picture" Type="image" />
-    <Property Name="imagepath" Type="nchar" MaxLength="10" />
+    <Property Name="imagepath" Type="nvarchar" MaxLength="150" />
     <Property Name="EyesId" Type="int" />
     <Property Name="creatorId" Type="int" />
     <Property Name="CurrentStatusId" Type="int" />
+    <Property Name="ListId" Type="int" />
   </EntityType>
   <EntityType Name="SuperPowers">
     <Key>
@@ -168,14 +170,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Equipment_List">
-    <End Role="List" Type="Self.List" Multiplicity="1" />
-    <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+    <End Role="List" Type="Self.List" Multiplicity="0..1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="List">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Equipment">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="ListId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -215,19 +217,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MessageBoard_Equipment">
-    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
-    <End Role="MessageBoard" Type="Self.MessageBoard" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Equipment">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MessageBoard">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MessageBoard_Superhero">
+  <Association Name="FK_MessageBoard_Superhero1">
     <End Role="Superhero" Type="Self.Superhero" Multiplicity="1" />
     <End Role="MessageBoard" Type="Self.MessageBoard" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -312,14 +302,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Superhero_List">
-    <End Role="List" Type="Self.List" Multiplicity="1" />
-    <End Role="Superhero" Type="Self.Superhero" Multiplicity="0..1" />
+    <End Role="List" Type="Self.List" Multiplicity="0..1" />
+    <End Role="Superhero" Type="Self.Superhero" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="List">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Superhero">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="ListId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -434,11 +424,7 @@
       <End Role="MessageBoard" EntitySet="MessageBoard" />
       <End Role="Issues" EntitySet="Issues" />
     </AssociationSet>
-    <AssociationSet Name="FK_MessageBoard_Equipment" Association="Self.FK_MessageBoard_Equipment">
-      <End Role="Equipment" EntitySet="Equipment" />
-      <End Role="MessageBoard" EntitySet="MessageBoard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MessageBoard_Superhero" Association="Self.FK_MessageBoard_Superhero">
+    <AssociationSet Name="FK_MessageBoard_Superhero1" Association="Self.FK_MessageBoard_Superhero1">
       <End Role="Superhero" EntitySet="Superhero" />
       <End Role="MessageBoard" EntitySet="MessageBoard" />
     </AssociationSet>

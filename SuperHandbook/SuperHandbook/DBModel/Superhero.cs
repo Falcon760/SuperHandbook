@@ -36,17 +36,18 @@ namespace SuperHandbook.DBModel
         public Nullable<int> EyesId { get; set; }
         public Nullable<int> creatorId { get; set; }
         public Nullable<int> CurrentStatusId { get; set; }
+        public Nullable<int> ListId { get; set; }
     
         public virtual BaseofOperation BaseofOperation { get; set; }
         public virtual Creator Creator { get; set; }
         public virtual CurrentStatu CurrentStatu { get; set; }
         public virtual Eye Eye { get; set; }
-        public virtual List List { get; set; }
         public virtual MartialStatu MartialStatu { get; set; }
-        public virtual MessageBoard MessageBoard { get; set; }
         public virtual Occupation Occupation { get; set; }
         public virtual ICollection<SuperEquip> SuperEquips { get; set; }
         public virtual ICollection<SuperPower> SuperPowers { get; set; }
         public virtual ICollection<SuperTeam> SuperTeams { get; set; }
+        public virtual MessageBoard MessageBoard { get; set; }
+        public virtual List List { get; set; }
     }
 }

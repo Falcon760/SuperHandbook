@@ -14,10 +14,16 @@ namespace SuperHandbook.DBModel
     
     public partial class List
     {
+        public List()
+        {
+            this.Equipments = new HashSet<Equipment>();
+            this.Superheroes = new HashSet<Superhero>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
     
-        public virtual Equipment Equipment { get; set; }
-        public virtual Superhero Superhero { get; set; }
+        public virtual ICollection<Equipment> Equipments { get; set; }
+        public virtual ICollection<Superhero> Superheroes { get; set; }
     }
 }

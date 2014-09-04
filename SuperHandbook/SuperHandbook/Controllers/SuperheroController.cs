@@ -7,12 +7,25 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SuperHandbook.DBModel;
+using System.IO;
 
 namespace SuperHandbook.Controllers
 {
     public class SuperheroController : Controller
     {
         private SuperDBEntities db = new SuperDBEntities();
+
+
+        //to get picture 
+        // has to be a jpeg
+        public ActionResult GetImage(int id)
+        {
+            byte[] imageData = db.Superheroes.Find(id).Picture;
+            return File(imageData, "image/jpeg");
+        }
+
+
+
 
         // GET: /Superhero/
         public ActionResult Index()
@@ -55,12 +68,35 @@ namespace SuperHandbook.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,RealName,CodeName,OccupationId,Birthplace,MartialstatusId,BaseofOperationsId,Origin,height,weight,Picture,imagepath,EyesId,creatorId,CurrentStatusId")] Superhero superhero)
+        public ActionResult Create([Bind(Include = "Id,RealName,CodeName,OccupationId,Birthplace,MartialstatusId,BaseofOperationsId,Origin,height,weight,Picture,imagepath,EyesId,creatorId,CurrentStatusId")] Superhero superhero, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
+                if (ImageFile != null)
+                {
+                    string pic = System.IO.Path.GetFileName(ImageFile.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/Content/img"), pic);
+                    ImageFile.SaveAs(path); //file saved to server here dude
+                    superhero.imagepath = pic; //picture name will be associated with each movie
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        ImageFile.InputStream.CopyTo(ms);
+                        superhero.Picture = ms.GetBuffer();
+
+                    }
+
+
+                }
+
+
+
+
                 db.Superheroes.Add(superhero);
                 db.SaveChanges();
+                var msgboard = new MessageBoard { Id = superhero.Id, BoardName = (superhero.RealName + " Comments") };
+                db.MessageBoards.Add(msgboard);
+                
                 return RedirectToAction("Index");
             }
 

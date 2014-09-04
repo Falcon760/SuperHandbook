@@ -40,6 +40,7 @@
     <EntitySetMapping Name="Equipments">
       <EntityTypeMapping TypeName="SuperDBModel.Equipment">
         <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="ListId" ColumnName="ListId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Origin" ColumnName="Origin" />
@@ -74,14 +75,6 @@
           <ScalarProperty Name="rating" ColumnName="rating" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />
           <ScalarProperty Name="Pubslier" ColumnName="Pubslier" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Lists">
-      <EntityTypeMapping TypeName="SuperDBModel.List">
-        <MappingFragment StoreEntitySet="List">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -156,6 +149,7 @@
     <EntitySetMapping Name="Superheroes">
       <EntityTypeMapping TypeName="SuperDBModel.Superhero">
         <MappingFragment StoreEntitySet="Superhero">
+          <ScalarProperty Name="ListId" ColumnName="ListId" />
           <ScalarProperty Name="CurrentStatusId" ColumnName="CurrentStatusId" />
           <ScalarProperty Name="creatorId" ColumnName="creatorId" />
           <ScalarProperty Name="EyesId" ColumnName="EyesId" />
@@ -170,6 +164,14 @@
           <ScalarProperty Name="OccupationId" ColumnName="OccupationId" />
           <ScalarProperty Name="CodeName" ColumnName="CodeName" />
           <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lists">
+      <EntityTypeMapping TypeName="SuperDBModel.List">
+        <MappingFragment StoreEntitySet="List">
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
