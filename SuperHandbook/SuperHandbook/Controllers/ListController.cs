@@ -17,7 +17,14 @@ namespace SuperHandbook.Controllers
         // GET: /List/
         public ActionResult Index()
         {
-            return View(db.Lists.ToList());
+            var list = (from s in db.Equipments
+                        join t in db.Superheroes
+                        on s.Id equals t.Id
+                        select new { s.Name, t.CodeName });
+
+
+
+            return View(list.ToList());
         }
 
         // GET: /List/Details/5
